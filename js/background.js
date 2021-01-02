@@ -4,18 +4,19 @@ const particleCount = 20;
 const particlePropCount = 9;
 const particlePropsLength = particleCount * particlePropCount;
 const baseTTL = 100;
-const rangeTTL = 500;
+const rangeTTL = 900;
 const baseSpeed = 0.1;
-const rangeSpeed = 1;
-const baseSize = 4;
-const rangeSize = 8;
-const baseHue = 240;
+const rangeSpeed = .8;
+const baseSize = 1;
+const rangeSize = 2;
+const baseHue = 320;
 const rangeHue = 80;
 const noiseSteps = 8;
 const xOff = 0.0005;
 const yOff = 0.005;
 const zOff = 0.0005;
-const backgroundColor = 'hsla(60,50%,3%,1)';
+const backgroundColor = 'rgba(255, 0, 0, 0.000001)';
+
 
 let container;
 let canvas;
@@ -55,13 +56,13 @@ function initParticle(i) {
   x = rand(canvas.a.width);
   y = rand(canvas.a.height);
   theta = angle(x, y, center[0], center[1]);
-  vx = cos(theta) * 16;
-  vy = sin(theta) * 16;
+  vx = cos(theta) * 2;
+  vy = sin(theta) * 3;
   life = 0;
   ttl = baseTTL + rand(rangeTTL);
   speed = baseSpeed + rand(rangeSpeed);
   size = baseSize + rand(rangeSize);
-  hue = baseHue + rand(rangeHue);
+  hue = baseHue+rand(rangeHue) >340 ? 153:209;
 
   particleProps.set([x, y, vx, vy, life, ttl, speed, size, hue], i);
 }
@@ -81,8 +82,8 @@ function updateParticle(i) {
   x = particleProps[i];
   y = particleProps[i2];
   theta = angle(x, y, center[0], center[1]) + 0.75 * HALF_PI;
-  vx = lerp(particleProps[i3], 2 * cos(theta), 0.05);
-  vy = lerp(particleProps[i4], 2 * sin(theta), 0.05);
+  vx = lerp(particleProps[i3], 20 * cos(theta), 0.05);
+  vy = lerp(particleProps[i4], 10 * sin(theta), 0.05);
   life = particleProps[i5];
   ttl = particleProps[i6];
   speed = particleProps[i7];
@@ -110,12 +111,13 @@ function drawParticle(x, y, theta, life, ttl, size, hue) {
   ctx.a.save();
   ctx.a.lineCap = 'round';
   ctx.a.lineWidth = 3;
-  ctx.a.strokeStyle = `hsla(${hue},100%,30%,${fadeInOut(life, ttl)})`;
+  ctx.a.strokeStyle = `hsla(${hue},100%,50%,${fadeInOut(life, ttl)})`;
+  console.log(hue);
   ctx.a.beginPath();
   ctx.a.translate(xRel, yRel);
   ctx.a.rotate(theta);
   ctx.a.translate(-xRel, -yRel);
-  ctx.a.ellipse(xRel, yRel, 5, 12, Math.PI / 4, 0, 2 * Math.PI);
+  ctx.a.ellipse(xRel, yRel, size, size, Math.PI / 4, 0, 2 * Math.PI);
   ctx.a.stroke();
   ctx.a.closePath();
   ctx.a.restore();
@@ -160,14 +162,28 @@ function resize() {
 }
 
 function renderGlow() {
+ 
+
   ctx.b.save();
-  ctx.b.filter = 'blur(20px) brightness(200%)';
+  ctx.b.filter = 'blur(5px) brightness(100%)';
   ctx.b.globalCompositeOperation = 'lighter';
   ctx.b.drawImage(canvas.a, 0, 0);
   ctx.b.restore();
 
   ctx.b.save();
-  ctx.b.filter = 'blur(4px) brightness(200%)';
+  ctx.b.filter = 'blur(2.5px) brightness(200%)';
+  ctx.b.globalCompositeOperation = 'lighter';
+  ctx.b.drawImage(canvas.a, 0, 0);
+  ctx.b.restore();
+
+  ctx.b.save();
+  ctx.b.filter = 'blur(1.25px) brightness(300%)';
+  ctx.b.globalCompositeOperation = 'lighter';
+  ctx.b.drawImage(canvas.a, 0, 0);
+  ctx.b.restore();
+
+   ctx.b.save();
+  ctx.b.filter = 'blur(.6px) brightness(400%)';
   ctx.b.globalCompositeOperation = 'lighter';
   ctx.b.drawImage(canvas.a, 0, 0);
   ctx.b.restore();
@@ -184,16 +200,20 @@ function draw() {
   tick++;
 
   ctx.a.clearRect(0, 0, canvas.a.width, canvas.a.height);
+  var my = ctx.b.createLinearGradient(10, 310, 110, 50);
+  my.addColorStop(0.5, "#00203FFF");
+  // my.addColorSt÷op(1, "#2B86C5");
+  my.addColorStop(0.5, "#ADEFD1FF");
 
-  ctx.b.fillStyle = backgroundColor;
+  ctx.b.fillStyle = my;
   ctx.b.fillRect(0, 0, canvas.a.width, canvas.a.height);
 
   drawParticles();
-  renderGlow();
+  // renderGlow();
   render();
 
 	window.requestAnimationFrame(draw);
 }
-
+console.log(this)
 window.addEventListener('load', setup);
 window.addEventListener('resize', resize);
