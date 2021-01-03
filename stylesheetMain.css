@@ -22,9 +22,17 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    border-top: dotted rgb(0, 45, 117);
+    border-top: solid #ADEFD1FF;
+    border-bottom: solid #ADEFD1FF;
+
     
-    
+}
+#gradient > div:nth-child(2) > nav > a:nth-child(1){
+    border-top: none;
+}
+#gradient > div:nth-child(2) > nav > a:nth-child(5){
+    border-bottom: none;
+
 }
 div{
     width: 100vw;
@@ -38,7 +46,7 @@ canvas{
 }
 .navBar{
     display: flex;
-    background-color: rgb(9, 0, 63);
+    background-color:#00203FFF;
     color: bisque;
     flex-direction: column;
     justify-content: space-around;
