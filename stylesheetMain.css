@@ -2,14 +2,18 @@
 *{
 /* transition: all 5s !important; */
 }
+html{
+    background-color: #FF3CAC;
+    background-image: linear-gradient(225deg, #FF3CAC 0%, #784BA0 50%, #2B86C5 100%);
 
+}
 body{
-
-    /* width: 100vw;
-    height: 100vh; */
-    /* scroll-behavior: none; */
-    /* overflow: hidden; */
+        width: 100vw;
+    height: 100vh;
+    scroll-behavior: none;
+    overflow: hidden;
     margin: 0;
+    transition: backdrop-filter 10000ms ease;
 }
 .navBar a{
     text-decoration-style: solid;
@@ -27,19 +31,6 @@ body{
 
     
 }
-#gradient > div:nth-child(2) > div{
-
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    width: 100%;
-    height: 100%;
-    z-index: 9999995;
-}
-#gradient > div:nth-child(3) > div > div{
-
- 
-}
 #gradient > div:nth-child(2) > nav > a:nth-child(1){
     border-top: none;
 }
@@ -47,7 +38,12 @@ body{
     border-bottom: none;
 
 }
-
+div{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    
+}
 #canvas{
     position: fixed;
 
@@ -58,7 +54,7 @@ body{
     color: bisque;
     flex-direction: column;
     justify-content: space-around;
-    width: 12vw;
+    width: 9vw;
     height: 100vh;
     align-content: center;
     text-align: center;
@@ -107,6 +103,4 @@ body{
 
 
 }
-.welcomeCard{
 
-}
