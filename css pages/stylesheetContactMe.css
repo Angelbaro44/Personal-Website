@@ -9,11 +9,19 @@
     padding: 20px;
     
 }
+h1{
+      align-self: center;
+    color: azure;
+    font-size: xx-large;
+    text-decoration: underline;
+    text-decoration: underline #fb2900 double;
+}
 textarea{
       padding-top: 10px !important;
 }
 .inputDiv {
       height: auto;
+      text-align: center;
 }
 #gradient > div > div > section > form > div:nth-child(5){
       height: 20%;
@@ -83,7 +91,7 @@ textarea{
   top: 0;
 }
 .contact-form .square-button {
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.651);
   color: #fb2900;
   font-size: 26px;
   text-transform: uppercase;
@@ -99,7 +107,7 @@ textarea{
   padding: 0 60px;
   height: 60px;
   border: none;
-  width: 100%;
+  /* width: 50%; */
 }
 .contact-form .square-button:hover, .contact-form .square-button:focus {
   background-color: white;
