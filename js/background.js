@@ -59,10 +59,10 @@ function initParticle(i) {
   life = 0;
   ttl = baseTTL + rand(rangeTTL);
   speed = baseSpeed + rand(rangeSpeed);
-  console.log(baseHue+rand(rangeHue))
   size = baseSize + rand(rangeSize);
 
-  
+    // console.log(baseHue+rand(rangeHue))
+
   if(baseHue+(Math.random()*rangeHue) > 366 ){
     hue = 60;
     sat = 100;
