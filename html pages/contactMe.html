@@ -27,41 +27,37 @@
 
             <div>
                   <section class="contact-wrap">
-                        <form action="" class="contact-form">
+                        <form   action="https://formspree.io/f/mzbkybro"
+                        method="POST" class="contact-form">
                           <div class="inputDiv">
                             <div class="input-block">
-                              <label for="">First Name</label>
-                              <input type="text" class="form-control">
-                            </div>
-                          </div>
-                          <div class="inputDiv">
-                            <div class="input-block">
-                              <label for="">Last Name</label>
-                              <input type="text" class="form-control">
+                              <label for="">Name</label>
+                              <input type="text" name="Name" class="form-control">
                             </div>
                           </div>
                           <div class="inputDiv">
                             <div class="input-block">
                               <label for="">Email</label>
-                              <input type="text" class="form-control">
+                              <input type="text" name="_replyto" class="form-control">
                             </div>
                           </div>
                           <div class="inputDiv">
                             <div class="input-block">
                               <label for="">Message Subject</label>
-                              <input type="text" class="form-control">
+                              <input type="text" name="Subject" class="form-control">
                             </div>
                           </div>
                           <div class="inputDiv">
                             <div class="input-block textarea">
                               <label for="">Drop your message here</label>
-                              <textarea rows="3" type="text" class="form-control"></textarea>
+                              <textarea rows="3" name="message" type="text" class="form-control"></textarea>
                             </div>
                           </div>
                           <div class="inputDiv">
                             <button class="square-button">Send</button>
                           </div>
                         </form>
+                        
                       </section>
             </div>
 
@@ -82,7 +78,7 @@ $(".contact-form")
     if ($(this).val()) {
       $(targetItem).find("label").css({
         top: "25px",
-        fontSize: "14px"
+        fontSize: "22px"
       });
     }
   });
