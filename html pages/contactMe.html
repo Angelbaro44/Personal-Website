@@ -8,13 +8,12 @@
       <link rel="shortcut icon" type="image/jpg" href="images/miso-soup-clipart-2 copy.png" />
       <link rel="stylesheet" href="../stylesheetMain.css">
       <link rel="stylesheet" href="../css pages/stylesheetContactMe.css">
-      <!-- <script>document.documentElement.className = "js"; var supportsCssVars = function () { var e, t = document.createElement("style"); return t.innerHTML = "root: { --tmp-var: bold; }", document.head.appendChild(t), e = !!(window.CSS && window.CSS.supports && window.CSS.supports("font-weight", "var(--tmp-var)")), t.parentNode.removeChild(t), e }; supportsCssVars() || alert("Please view this demo in a modern browser that supports CSS Variables.");</script> -->
 
 </head>
 
 <body id="gradient">
       <!-- <div id="canvas" class="content content--canvas"></div> -->
-      <div >
+      <div>
             <nav class='navBar'>
                   <a href="Home.html" rel="noopener noreferrer">Home</a>
                   <a href="AboutMe.html" rel="noopener noreferrer">About Me</a>
@@ -29,37 +28,37 @@
             <div>
                   <section class="contact-wrap">
                         <form action="" class="contact-form">
-                          <div class="col-sm-6">
+                          <div class="inputDiv">
                             <div class="input-block">
                               <label for="">First Name</label>
                               <input type="text" class="form-control">
                             </div>
                           </div>
-                          <div class="col-sm-6">
+                          <div class="inputDiv">
                             <div class="input-block">
                               <label for="">Last Name</label>
                               <input type="text" class="form-control">
                             </div>
                           </div>
-                          <div class="col-sm-12">
+                          <div class="inputDiv">
                             <div class="input-block">
                               <label for="">Email</label>
                               <input type="text" class="form-control">
                             </div>
                           </div>
-                          <div class="col-sm-12">
+                          <div class="inputDiv">
                             <div class="input-block">
                               <label for="">Message Subject</label>
                               <input type="text" class="form-control">
                             </div>
                           </div>
-                          <div class="col-sm-12">
+                          <div class="inputDiv">
                             <div class="input-block textarea">
                               <label for="">Drop your message here</label>
                               <textarea rows="3" type="text" class="form-control"></textarea>
                             </div>
                           </div>
-                          <div class="col-sm-12">
+                          <div class="inputDiv">
                             <button class="square-button">Send</button>
                           </div>
                         </form>
@@ -73,7 +72,47 @@
       <!-- <script src="../js/noise.min.js"></script>
       <script src="../js/utillity.js"></script>
       <script src="../js/background.js"></script> -->
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script>
+      //material contact form animation
+$(".contact-form")
+  .find(".form-control")
+  .each(function () {
+    var targetItem = $(this).parent();
+    if ($(this).val()) {
+      $(targetItem).find("label").css({
+        top: "25px",
+        fontSize: "14px"
+      });
+    }
+  });
+$(".contact-form")
+  .find(".form-control")
+  .focus(function () {
+    $(this).parent(".input-block").addClass("focus");
+    $(this).parent().find("label").animate(
+      {
+        top: "5px",
+        fontSize: "14px"
+      },
+      300
+    );
+  });
+$(".contact-form")
+  .find(".form-control")
+  .blur(function () {
+    if ($(this).val().length == 0) {
+      $(this).parent(".input-block").removeClass("focus");
+      $(this).parent().find("label").animate(
+        {
+          top: "25px",
+          fontSize: "22px"
+        },
+        300
+      );
+    }
+  });
+</script>
       <script src="../js/BackgroundGradient.js"></script>
 </body>
 
