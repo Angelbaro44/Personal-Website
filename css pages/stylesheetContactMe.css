@@ -7,14 +7,16 @@
     justify-content: space-around;
     border: #fb2900 groove 1px;
     padding: 20px;
+    background-color: #e2908057;
+
     
 }
 h1{
       align-self: center;
     color: azure;
     font-size: xx-large;
-    text-decoration: underline;
-    text-decoration: underline #fb2900 double;
+    /* text-decoration: underline;
+    text-decoration: underline #fb2900 double; */
 }
 textarea{
       padding-top: 10px !important;
