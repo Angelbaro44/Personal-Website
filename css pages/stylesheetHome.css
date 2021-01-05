@@ -5,7 +5,12 @@
 
 
     
- 
+ img {
+      width: 150px;
+      filter: drop-shadow(-3px 0 cyan);
+      width: 90px;
+
+    }
     
     #wrapper {
       text-align: center;
@@ -16,7 +21,7 @@
     }
     
     span { 
-      text-shadow: -0.06em 0 red,  0.06em 0 cyan; /* This creates the 3D effect, pretty easy, eh? */
+      text-shadow: -3px 0 red,  3px 0 cyan; /* This creates the 3D effect, pretty easy, eh? */
       letter-spacing: 0.08em; /* make sure the letters don't overlap */
     }
     
@@ -83,7 +88,7 @@
       text-shadow: none; /* Click to disable the 3D effect */
     }
     #title span::selection {
-      background-color: red; /* This hides the selection */
+      background-color: rgba(255, 255, 255, 0.253); /* This hides the selection */
     }
     
     
