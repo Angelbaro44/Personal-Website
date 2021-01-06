@@ -17,13 +17,7 @@ body{
     background-color: transparent !important;
 }
 
-#gradient > div:nth-child(2) > nav > a:nth-child(1){
-    border-top: none;
-}
-#gradient > div:nth-child(2) > nav > a:nth-child(5){
-    border-bottom: none;
 
-}
 #gradient > div:nth-child(1){
     width: 100%;
     height: 100%;
@@ -50,7 +44,6 @@ width: 100px;
 .tooltip {
     position: relative;
     display: inline-block;
-    border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
   }
   
   /* Tooltip text */
@@ -62,7 +55,21 @@ width: 100px;
     text-align: center;
     padding: 5px 0;
     border-radius: 6px;
-   left: 150px;   
+   left: 8.8vw;   
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    z-index: 1;
+    font-size: 18px;
+  }
+  .tooltip .tooltiptextdown {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+   top: 15vh;   
     /* Position the tooltip text - see examples below! */
     position: absolute;
     z-index: 1;
@@ -73,6 +80,12 @@ width: 100px;
   .tooltip:hover .tooltiptext {
     visibility: visible;
   }
+  .tooltip:hover .tooltiptextdown {
+    visibility: visible;
+  }
+
+
+
 .navBar{
     display: flex;
     background-color:#00203FFF;
