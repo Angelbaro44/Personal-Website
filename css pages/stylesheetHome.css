@@ -15,9 +15,10 @@
       text-align: center;
       color: #000;
       font-weight: bold;
-      font-size: 10em;
+      /* font-size: 10em; */
+      font-size: clamp(0.2rem, 10vw + 1rem, 9.2rem);
       padding: 50px 0;
-    }
+      margin-left: calc(10vw + 15px);    }
     
     span { 
       text-shadow: -3px 0 red,  3px 0 cyan; /* This creates the 3D effect, pretty easy, eh? */
@@ -31,6 +32,7 @@
     /* ---------------- Stars ---------------- */
     
     #stars span {
+      font-size: 10em;
       display: inline-block;
       transform: scale(1);
       transition: transform 2s cubic-bezier(0, 1, 0, 1);
